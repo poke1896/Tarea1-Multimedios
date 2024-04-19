@@ -1,0 +1,171 @@
+body {
+    background-color: #d3d3d3;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.navbar-brand {
+    font-size: 20px;
+    font-family: 'Billabong', cursive;
+    color: #808080;
+}
+
+.navbar .fas {
+    font-size: 20px;
+}
+
+.btn-success {
+    color: #ffffff;
+    background-color: #008000;
+    border-color: #008000;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.grid div {
+    width: 350px;
+    height: 150px;
+    background-color: #808080;
+    border-radius: 5px;
+}
+
+.grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.grid.img-container {
+    display: none;
+}
+
+.lista.img-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+}
+
+.icon {
+    background-color: #808080;
+    color: #ffffff;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    margin-right: 10px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    border-radius: 5px;
+}
+
+.btn-grey {
+    color: #ffffff;
+    background-color: #808080;
+    border-color: #808080;
+    margin-right: 10px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.post-input {
+    width: 100%;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+}
+
+.separator {
+    height: 1px;
+    background-color: #d3d3d3;
+    margin: 30px 0;
+    width: 100%;
+}
+
+.view-button.th.active,
+.view-button.square.active {
+    background-color: #ffffff;
+    color: #007BFF;
+}
+
+.view-button {
+    background-color: #ffffff;
+    color: #007BFF;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    margin: 15px 10px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    border-radius: 5px;
+    border: none;
+}
+
+.photo-container {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+
+}
+
+.photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+#likeButton.liked i {
+    color: red;
+   
+}
+
+#likeButton {
+    margin-right: 10px;
+   
+}
+
+#likeCount {
+    margin-right: 10px;
+}

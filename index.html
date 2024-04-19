@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Instagram Tarea</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+
+
+
+   
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#"><i class="fab fa-instagram"></i> Instagram</a>
+        <button id="myBtn" class="btn btn-success my-2 my-sm-0 ml-auto" type="submit">Create a new post</button>
+        <div class="dropdown dropleft">
+            <button class="btn btn-outline-secondary my-2 my-sm-0 border-0 dropdown-toggle" type="button"
+                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-cog"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Log out</a>
+            </div>
+        </div>
+        </div>
+    </nav>
+    <div class="view-buttons" style="text-align: center;">
+        <button class="view-button th active" onclick="mostrarCuadricula()"><i class="fas fa-th"></i></button>
+        <button class="view-button square" onclick="mostrarLista()"><i class="fas fa-square"></i></button>
+    </div>
+    <div class="container">
+        <div class="grid img-container row">
+            <img src="/image/1.jpg" alt="Imagen 1">
+            <img src="image/2.jpg" alt="Imagen 2">
+            <img src="image/3.jpg" alt="Imagen 3">
+            <img src="image/4.jpg" alt="Imagen 4">
+            <img src="image/5.jpg" alt="Imagen 5">
+            <img src="image/6.jpg" alt="Imagen 6">
+            <img src="image/7.jpg" alt="Imagen 7">
+            <img src="image/8.jpg" alt="Imagen 8">
+            <img src="image/9.jpg" alt="Imagen 9">
+        </div>
+        <div class="lista img-container row">
+            <img src="/image/1.jpg" alt="Imagen 1">
+            <img src="image/2.jpg" alt="Imagen 2">
+            <img src="image/3.jpg" alt="Imagen 3">
+            <img src="image/4.jpg" alt="Imagen 4">
+            <img src="image/5.jpg" alt="Imagen 5">
+            <img src="image/6.jpg" alt="Imagen 6">
+            <img src="image/7.jpg" alt="Imagen 7">
+            <img src="image/8.jpg" alt="Imagen 8">
+            <img src="image/9.jpg" alt="Imagen 9">
+        </div>
+    </div>
+
+    <div id="imagePopup" class="modal">
+        <div class="modal-content">
+            <div class="image-container" style="background-color: #ffffff; padding: 15px; border-radius: 5px;">
+                <div class="caption">
+                    <h5 id="imageTitle"></h5>
+                    <div class="photo-container">
+                        <img id="popupImage" src="" alt="Popup Image">
+                    </div>
+                    <p id="imageDescription"></p>
+                </div>
+            </div>
+            <div class="like-section" style="padding: 10px;">
+                <p>Likes: <span class="like-count">0</span></p>
+            </div>
+            <div class="input-group mb-3" style="display: flex;">
+                <button id="likeButton" class="btn btn-link heart-btn"><i class="far fa-heart"></i></button>
+                <input id="commentInput" type="text" class="form-control comment-input border-0" placeholder="Comment" aria-label="Comment" aria-describedby="basic-addon2">
+            </div>
+        </div>
+    </div>
+    
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <input class="post-input" type="text" placeholder="">
+            <div>
+                <div class="icon"><i class="fas fa-camera"></i></div>
+                <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+            </div>
+            <div class="separator"></div>
+            <div class="button-group">
+                <button id="cancelBtn" class="btn btn-grey">Cancel</button>
+                <button class="btn btn-success">Publish</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+
+        // Obtiene el modal
+        var modal = document.getElementById("myModal");
+        // Obtiene el botón que abre el modal
+        var btn = document.getElementById("myBtn");
+        // Obtiene el botón que cierra el modal
+        var btnCancel = document.getElementById("cancelBtn");
+        // Cuando el usuario hace clic en el botón, abre el modal
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+        // Cuando el usuario hace clic en "Cancel", cierra el modal
+        btnCancel.onclick = function () {
+            modal.style.display = "none";
+        }
+
+
+        function mostrarCuadricula() {
+            document.querySelector('.view-button.th').classList.add('active');
+            document.querySelector('.view-button.square').classList.remove('active');
+            document.querySelectorAll('.grid.img-container img').forEach(function (img) {
+                img.classList.remove('col-8');
+                img.classList.add('col-4');
+            });
+            document.querySelectorAll('.lista.img-container img').forEach(function (img) {
+                img.classList.remove('col-8');
+                img.classList.add('col-4');
+            });
+        }
+
+        function mostrarLista() {
+            document.querySelector('.view-button.th').classList.remove('active');
+            document.querySelector('.view-button.square').classList.add('active');
+            document.querySelectorAll('.grid.img-container img').forEach(function (img) {
+                img.classList.remove('col-4');
+                img.classList.add('col-8');
+            });
+            document.querySelectorAll('.lista.img-container img').forEach(function (img) {
+                img.classList.remove('col-4');
+                img.classList.add('col-8');
+            });
+        }
+
+
+        var images = document.querySelectorAll('.img-container img');
+
+        // Aventana para imagen
+        images.forEach(function (image, index) {
+            image.addEventListener('click', function () {
+
+                var imageUrl = image.getAttribute('src');
+                var imageAlt = image.getAttribute('alt');
+                var imageTitle = 'Image ' + (index + 1);
+                var imageDescription = 'Description for image ' + (index + 1);
+
+
+                document.getElementById('popupImage').src = imageUrl;
+                document.getElementById('imageTitle').innerText = imageTitle;
+                document.getElementById('imageDescription').innerText = imageDescription;
+
+                // Muestra la ventana emergente
+                document.getElementById('imagePopup').style.display = 'block';
+            });
+        });
+
+        // Cierra la ventana emergente cuando se hace clic fuera de ella
+        window.addEventListener('click', function (event) {
+            var modal = document.getElementById('imagePopup');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+
+        var likeButtons = document.querySelectorAll('.heart-btn');
+        var likeCounts = document.querySelectorAll('.like-count');
+
+        // Agrega evento de clic 
+        likeButtons.forEach(function (likeButton, index) {
+            likeButton.addEventListener('click', function () {
+                var likeCount = likeCounts[index]; // Obtiene el contador de likes correspondiente
+
+                // Obtiene el número actual de likes
+                var likes = parseInt(likeCount.innerText);
+
+                // Verifica si el botón de like ya ha sido clicado
+                if (likeButton.classList.contains('liked')) {
+                    // Si ya ha sido clicado, vuelve al estado normal
+                    likeButton.classList.remove('liked');
+                    likes--;
+                } else {
+                    // Si no ha sido clicado, marca como "liked"
+                    likeButton.classList.add('liked');
+                    likes++;
+                }
+                // Actualiza el contador de likes
+                likeCount.innerText = likes;
+            });
+        });
+    </script>
+</body>
+
+</html>
